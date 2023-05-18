@@ -21,7 +21,7 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "/plus")
-    public String resultPlus(@RequestParam("num1") String num1, @RequestParam("num2") String num2) {
+    public String resultPlus(@RequestParam("num1") String num1,  @RequestParam("num2") String num2) {
         return calculatorServiseInterface.resultPlus(num1, num2);
     }
 
