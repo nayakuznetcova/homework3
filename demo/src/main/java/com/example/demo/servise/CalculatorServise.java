@@ -1,5 +1,6 @@
 package com.example.demo.servise;
 
+import com.example.demo.exceptions.ExceptionsDivide;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,30 +12,28 @@ public class CalculatorServise implements CalculatorServiseInterface {
     }
 
     @Override
-    public String resultPlus(String num1, String num2) {
+    public Integer resultPlus(String num1, String num2) {
         int result = Integer.parseInt(num1) + Integer.parseInt(num2);
-        return num1 + " + " + num2 + " = " + result;
+        return result;
     }
 
     @Override
-    public String resultMinus(String num1, String num2) {
+    public Integer resultMinus(String num1, String num2) {
         int result = Integer.parseInt(num1) - Integer.parseInt(num2);
-        return num1 + " - " + num2 + " = " + result;
+        return result;
     }
 
     @Override
-    public String resultMultiply(String num1, String num2) {
+    public Integer resultMultiply(String num1, String num2) {
         int result = Integer.parseInt(num1) * Integer.parseInt(num2);
-        return num1 + " * " + num2 + " = " + result;
+        return result;
     }
 
     @Override
-    public String resultDivide(String num1, String num2) {
+    public Integer resultDivide(String num1, String num2) {
         if (Integer.parseInt(num2) == 0) {
-            return "На ноль делить нельзя";
+            throw new ExceptionsDivide("На ноль делить нельзя");
         }
-        int result = Integer.parseInt(num1) / Integer.parseInt(num2);
-        return num1 + " / " + num2 + " = " + result;
-
+        return Integer.parseInt(num1) / Integer.parseInt(num2);
     }
 }
